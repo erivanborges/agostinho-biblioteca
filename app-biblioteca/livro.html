@@ -14,8 +14,8 @@
     <!-- Sidebar -->
     <div class="ui vertical inverted sidebar menu visible sidebar">
         <div class="header"> Biblioteca</div>
-        <a class="item active" href="index.html">Início</a>
-        <a class="item" href="livro.html">Livros</a>
+        <a class="item" href="index.html">Início</a>
+        <a class="item active" href="livro.html">Livros</a>
         <a class="item" href="emprestimo.html">Emprestímos</a>
     </div>
 
@@ -23,7 +23,7 @@
     <div class="main-content">
         <h2 class="ui header"> Gerenciar Livros </h2>
 
-        <form action="">
+        <form id="formLivro" class="ui form">
             <div class="two fields">
                 <div class="field">
                     <label>Título</label>
@@ -34,7 +34,41 @@
                     <input type="text" id="autor" placeholder="Digite o nome do autor">
                 </div>
             </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Ano de Publicação</label>
+                    <input type="text" id="anoPublicacao" placeholder="Digite o ano de publicação do livro">
+                </div>
+                <div class="field">
+                    <label>Código ISBN</label>
+                    <input type="text" id="isbn" placeholder="Digite o código ISBN do livro">
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Gênero</label>
+                    <input type="text" id="genero" placeholder="Digite Gênero do livro">
+                </div>
+            </div>
         </form>
+
+        <h3 class="ui dividing header">Lista de Livros</h3>
+
+        <table class="ui celled striped table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Ano de Publicação</th>
+                    <th>Código ISBN</th>
+                    <th>Gênero</th>
+                    <th>Disponível</th>
+                        <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
     
     <!-- Rodape -->
