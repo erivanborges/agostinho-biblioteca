@@ -24,7 +24,28 @@
         <h2 class="ui header"> Gerenciar Emprestimos </h2>
 
         <form id="formEmprestimo" class="ui form">
-            
+            <div class="two fields">
+                <div class="field">
+                    <label>ID do Livro</label>
+                    <input type="number" id="livroId" placeholder="Digite o ID do livro">
+                </div>
+                <div class="field">
+                    <label>Data de Empréstimo</label>
+                    <input type="date" id="dtEmprestimo" placeholder="Digite a data de empréstimo">
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Data de Devolução</label>
+                    <input type="date" id="dtDevolucao" placeholder="Digite a data de devolução do livro">
+                </div>
+                <div class="field">
+                    <label>Status</label>
+                    <input type="text" id="status" placeholder="Digite o status do empréstimo">
+                </div>
+            </div>
+            <button class="ui primary button" type="submit">Salvar</button>
+            <button class="ui button" type="button" onclick="cancelarEdicao()">Cancelar</button>
         </form>
 
         <h3 class="ui dividing header">Lista de Emprestimos</h3>
@@ -32,7 +53,12 @@
         <table class="ui celled striped table">
             <thead>
                 <tr>
-                    
+                    <th>ID</th>
+                    <th>Livro</th>
+                    <th>Data de empréstimo</th>
+                    <th>Data de devolução</th>
+                    <th>Status</th>
+                        <th>Ações</th>
                 </tr>
             </thead>
             <tbody></tbody>
