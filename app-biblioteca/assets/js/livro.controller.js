@@ -110,13 +110,3 @@ async function excluirLivro(id) {
   }
 }
 
-/*async/await no JavaScript é uma sintaxe que permite escrever código assíncrono (tarefas que levam tempo, como buscar dados) de forma que ele pareça e se comporte mais como código síncrono (que executa passo a passo). Ele usa a palavra-chave async para declarar funções assíncronas e await para pausar a execução da função até que uma Promise seja resolvida, simplificando a lógica e o tratamento de erros com blocos try...catch. 
-Como funciona:
-1. async:
-Você usa async antes de uma declaração de função para indicar que ela é assíncrona. 
-Uma função declarada com async sempre retorna uma Promise por padrão. 
-2. await:
-Você usa await dentro de uma função async antes de uma expressão que retorna uma Promise. 
-Ele "pausa" a execução da função async até que a Promise seja resolvida. 
-Se a Promise for resolvida com sucesso, await retorna o valor resolvido. 
-Se a Promise for rejeitada, await lança uma exceção, permitindo que você a capture com try...catch. */
