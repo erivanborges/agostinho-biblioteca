@@ -90,7 +90,6 @@ function editarLivro(id, titulo, autor, anoPublicacao, isbn, genero, disponivel)
   document.getElementById("isbn").value = isbn;
   document.getElementById("genero").value = genero;
   document.getElementById("disponivel").value = disponivel;
-  // Inserir campos que faltam...
 }
 
 // Reseta o formulário
