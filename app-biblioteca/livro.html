@@ -1,83 +1,93 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sistema de Biblioteca - Livros </title>
 
-    <link rel="stylesheet" type="text/css" href="vendor/semantic/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <title>Sistema de Biblioteca - Livros</title>
+
+  <link rel="stylesheet" type="text/css" href="vendor/semantic/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <!-- Controllers da Aplicação -->
+  <script src="./app.js"></script>
+  <script src="assets/js/livro.controller.js"></script>
 
 </head>
 <body>
-    
-    <!-- Sidebar -->
-    <div class="ui vertical inverted sidebar menu visible sidebar">
-        <div class="header"> Biblioteca</div>
-        <a class="item" href="index.html">Início</a>
-        <a class="item active" href="livro.html">Livros</a>
-        <a class="item" href="emprestimo.html">Emprestímos</a>
+
+  <!-- Sidebar -->
+  <div class="ui vertical inverted sidebar menu visible sidebar">
+    <div class="header">📚 Biblioteca</div>
+    <a class="item" href="index.html">Início</a>
+    <a class="item active" href="livro.html">Livros</a>
+    <a class="item" href="emprestimo.html">Empréstimos</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2 class="ui header">📖 Gerenciar Livros</h2>
+
+    <form id="formLivro" class="ui form">
+	    <input type="hidden" id="livroIdEdit"> <!-- campo oculto para obter ID -->
+      <input type="hidden" id="disponivel"> <!-- campo oculto para obter o valor de disponivel -->
+      <div class="two fields">
+        <div class="field">
+          <label>Título</label>
+          <input type="text" id="titulo" placeholder="Digite o título do livro" required>
+        </div>
+        <div class="field">
+          <label>Autor</label>
+          <input type="text" id="autor" placeholder="Digite o autor" required>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Ano de Publicação</label>
+          <input type="text" id="anoPublicacao" placeholder="Digite o ano de publicação" required>
+        </div>
+        <div class="field">
+          <label>Código ISBN</label>
+          <input type="text" id="isbn" placeholder="Digite o código ISBN" required>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Gênero</label>
+          <input type="text" id="genero" placeholder="Digite o gênero" required>
+        </div>
+      </div>
+      <button class="ui primary button" type="submit">Salvar</button>
+	  <button class="ui button" type="button" onclick="cancelarEdicao()">Cancelar</button>
+    </form>
+
+    <h3 class="ui dividing header">Lista de Livros</h3>
+
+    <div id="erroLivros"></div>
+    <div id="loaderLivros" class="ui active inverted dimmer" style="display:none;">
+      <div class="ui text loader">Carregando livros...</div>
     </div>
 
-    <!-- Conteudo Principal -->
-    <div class="main-content">
-        <h2 class="ui header"> Gerenciar Livros </h2>
+    <table class="ui celled striped table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Autor</th>
+          <th>Ano de Publicação</th>
+          <th>Código ISBN</th>
+          <th>Gênero</th>
+          <th>Disponível</th>
+		      <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaLivros"></tbody>
+    </table>
+  </div>
 
-        <form id="formLivro" class="ui form">
-            <div class="two fields">
-                <div class="field">
-                    <label>Título</label>
-                    <input type="text" id="titulo" placeholder="Digite o título do livro">
-                </div>
-                <div class="field">
-                    <label>Autor</label>
-                    <input type="text" id="autor" placeholder="Digite o nome do autor">
-                </div>
-            </div>
-            <div class="two fields">
-                <div class="field">
-                    <label>Ano de Publicação</label>
-                    <input type="text" id="anoPublicacao" placeholder="Digite o ano de publicação do livro">
-                </div>
-                <div class="field">
-                    <label>Código ISBN</label>
-                    <input type="text" id="isbn" placeholder="Digite o código ISBN do livro">
-                </div>
-            </div>
-            <div class="two fields">
-                <div class="field">
-                    <label>Gênero</label>
-                    <input type="text" id="genero" placeholder="Digite Gênero do livro">
-                </div>
-            </div>
-            <button class="ui primary button" type="submit">Salvar</button>
-            <button class="ui button" type="button" onclick="cancelarEdicao()">Cancelar</button>
-        </form>
-
-        <h3 class="ui dividing header">Lista de Livros</h3>
-
-        <table class="ui celled striped table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Ano de Publicação</th>
-                    <th>Código ISBN</th>
-                    <th>Gênero</th>
-                    <th>Disponível</th>
-                        <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-    
-    <!-- Rodape -->
-    <footer>
-        <p> Sistema de Biblioteca - Desenvolvido para a disciplina de Front-End </p>
-    </footer>
-
+  <!-- Rodape -->
+  <footer>
+    <p>📚 Sistema de Biblioteca - Desenvolvido para disciplina de Front-End </p>
+  </footer>
 
 </body>
 </html>

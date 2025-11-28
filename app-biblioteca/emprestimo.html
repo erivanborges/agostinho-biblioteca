@@ -1,75 +1,85 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sistema de Biblioteca - Emprestimos </title>
 
-    <link rel="stylesheet" type="text/css" href="vendor/semantic/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <title>Sistema de Biblioteca - Empréstimos</title>
+
+  <link rel="stylesheet" type="text/css" href="vendor/semantic/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <!-- Controllers da Aplicação -->
+  <script src="./app.js"></script>
+  <script src="assets/js/emprestimo.controller.js"></script>
 
 </head>
 <body>
-    
-    <!-- Sidebar -->
-    <div class="ui vertical inverted sidebar menu visible sidebar">
-        <div class="header"> Biblioteca</div>
-        <a class="item" href="index.html">Início</a>
-        <a class="item" href="livro.html">Livros</a>
-        <a class="item active" href="emprestimo.html">Emprestimos</a>
+
+  <!-- Sidebar -->
+  <div class="ui vertical inverted sidebar menu visible sidebar">
+    <div class="header">📚 Biblioteca</div>
+    <a class="item" href="index.html">Início</a>
+    <a class="item" href="livro.html">Livros</a>
+    <a class="item active" href="emprestimo.html">Empréstimos</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2 class="ui header">📕 Gerenciar Empréstimos</h2>
+
+    <form id="formEmprestimo" class="ui form">
+	    <input type="hidden" id="emprestimoIdEdit"> <!-- campo oculto para obter ID -->
+      <input type="hidden" id="devolvido"> <!-- campo oculto para obter devolvido -->
+      <div class="two fields">
+        <div class="field">
+          <label>ID do Livro</label>
+          <input type="number" id="livroId" placeholder="Digite o ID do livro" required>
+        </div>
+        <div class="field">
+          <label>Data de Emprestimo</label>
+          <input type="date" id="dtEmprestimo" placeholder="Digite a Data de Emprestimo" required>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Data de Devolução</label>
+          <input type="date" id="dtDevolucao" placeholder="Digite a Data de Devolução">
+        </div>
+        <div class="field">
+          <label>Status</label>
+          <input type="text" id="status" placeholder="Digite o nome do usuário" required>
+        </div>
+      </div>
+      <button class="ui primary button" type="submit">Salvar</button>
+	  <button class="ui button" type="button" onclick="cancelarEdicao()">Cancelar</button>
+    </form>
+
+    <h3 class="ui dividing header">Lista de Empréstimos</h3>
+
+    <div id="erroEmprestimos"></div>
+    <div id="loaderEmprestimos" class="ui active inverted dimmer" style="display:none;">
+      <div class="ui text loader">Carregando empréstimos...</div>
     </div>
 
-    <!-- Conteudo Principal -->
-    <div class="main-content">
-        <h2 class="ui header"> Gerenciar Emprestimos </h2>
+    <table class="ui celled striped table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Livro</th>
+          <th>Data de Emprestimo</th>
+          <th>Data de Devolução</th>
+          <th>Status</th>
+		      <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaEmprestimos"></tbody>
+    </table>
+  </div>
 
-        <form id="formEmprestimo" class="ui form">
-            <div class="two fields">
-                <div class="field">
-                    <label>ID do Livro</label>
-                    <input type="number" id="livroId" placeholder="Digite o ID do livro">
-                </div>
-                <div class="field">
-                    <label>Data de Empréstimo</label>
-                    <input type="date" id="dtEmprestimo" placeholder="Digite a data de empréstimo">
-                </div>
-            </div>
-            <div class="two fields">
-                <div class="field">
-                    <label>Data de Devolução</label>
-                    <input type="date" id="dtDevolucao" placeholder="Digite a data de devolução do livro">
-                </div>
-                <div class="field">
-                    <label>Status</label>
-                    <input type="text" id="status" placeholder="Digite o status do empréstimo">
-                </div>
-            </div>
-            <button class="ui primary button" type="submit">Salvar</button>
-            <button class="ui button" type="button" onclick="cancelarEdicao()">Cancelar</button>
-        </form>
-
-        <h3 class="ui dividing header">Lista de Emprestimos</h3>
-
-        <table class="ui celled striped table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Livro</th>
-                    <th>Data de empréstimo</th>
-                    <th>Data de devolução</th>
-                    <th>Status</th>
-                        <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-    
-    <!-- Rodape -->
-    <footer>
-        <p> Sistema de Biblioteca - Desenvolvido para a disciplina de Front-End </p>
-    </footer>
-
+  <!-- Rodape -->
+  <footer>
+    <p>📚 Sistema de Biblioteca - Desenvolvido para disciplina de Front-End </p>
+  </footer>
 
 </body>
 </html>
